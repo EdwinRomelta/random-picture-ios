@@ -1,4 +1,6 @@
 name: remote
+options:
+  carthageBuildPath: ../Carthage/Build
 targets:
   remote:
     type: framework
@@ -14,3 +16,4 @@ targets:
     dependencies:
       - framework: data.framework
         implicit: true
+      - carthage: RxSwift

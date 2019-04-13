@@ -77,9 +77,11 @@ Pods/
 ####
 # Carthage
 Carthage/Build.rbenv-vars
+Carthage/Checkouts
 !Cartfile
 !Cartfile.private
 !Cartfile.resolved
+
 
 ####
 # XCodeGen

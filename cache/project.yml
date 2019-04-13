@@ -1,4 +1,6 @@
 name: cache
+options:
+  carthageBuildPath: ../Carthage/Build
 targets:
   cache:
     type: framework
@@ -14,3 +16,4 @@ targets:
     dependencies:
       - framework: data.framework
         implicit: true
+      - carthage: RxSwift

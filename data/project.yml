@@ -1,4 +1,6 @@
 name: data
+options:
+  carthageBuildPath: ../Carthage/Build
 targets:
   data:
     type: framework
@@ -14,3 +16,4 @@ targets:
     dependencies:
       - framework: domain.framework
         implicit: true
+      - carthage: RxSwift

@@ -1,4 +1,6 @@
 name: ui
+options:
+  carthageBuildPath: ../Carthage/Build
 targets:
   ui:
     type: application
@@ -21,3 +23,4 @@ targets:
         implicit: true
       - framework: remote.framework
         implicit: true
+      - carthage: RxSwift
