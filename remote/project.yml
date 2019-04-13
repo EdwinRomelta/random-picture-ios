@@ -1,0 +1,13 @@
+name: remote
+targets:
+  remote:
+    type: framework
+    platform: iOS
+    deploymentTarget: 9.0
+    sources: [Sources]
+    settings:
+      base:
+        CODE_SIGN_STYLE: Automatic
+        PRODUCT_BUNDLE_IDENTIFIER: "com.edwin.remote"
+        DEVELOPMENT_TEAM: RCM6P6GKXX
+        SWIFT_VERSION: 5.0

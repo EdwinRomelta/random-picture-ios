@@ -1,0 +1,12 @@
+name: ui
+targets:
+  ui:
+    type: application
+    platform: iOS
+    deploymentTarget: 9.0
+    sources: [Sources]
+    settings:
+      base:
+        DEVELOPMENT_TEAM: RCM6P6GKXX
+        PRODUCT_BUNDLE_IDENTIFIER: "com.edwin.ui"
+        SWIFT_VERSION: 5.0
