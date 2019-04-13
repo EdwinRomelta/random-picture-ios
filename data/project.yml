@@ -11,3 +11,6 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: "com.edwin.data"
         DEVELOPMENT_TEAM: RCM6P6GKXX
         SWIFT_VERSION: 5.0
+    dependencies:
+      - framework: domain.framework
+        implicit: true

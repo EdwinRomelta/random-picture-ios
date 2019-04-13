@@ -10,3 +10,14 @@ targets:
         DEVELOPMENT_TEAM: RCM6P6GKXX
         PRODUCT_BUNDLE_IDENTIFIER: "com.edwin.ui"
         SWIFT_VERSION: 5.0
+    dependencies:
+      - framework: presenter.framework
+        implicit: true
+      - framework: domain.framework
+        implicit: true
+      - framework: data.framework
+        implicit: true
+      - framework: cache.framework
+        implicit: true
+      - framework: remote.framework
+        implicit: true
