@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:remote/remote.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:cache/cache.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:data/data.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:domain/domain.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:presenter/presenter.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:ui/ui.xcodeproj">
+   </FileRef>
+</Workspace>
