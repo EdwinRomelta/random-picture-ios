@@ -5,7 +5,7 @@ targets:
   remote:
     type: framework
     platform: iOS
-    deploymentTarget: 9.0
+    deploymentTarget: 10.0
     sources: [Sources]
     settings:
       base:
@@ -17,3 +17,5 @@ targets:
       - framework: data.framework
         implicit: true
       - carthage: RxSwift
+      - carthage: Alamofire
+      - carthage: RxAlamofire
