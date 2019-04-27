@@ -7,7 +7,7 @@
 
 import RxSwift
 
-protocol SessionCache {
+public protocol SessionCache {
     
     func store(_ sessionEntity: SessionEntity) -> Completable
     

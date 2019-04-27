@@ -6,10 +6,10 @@
 //
 
 public struct SessionEntity{
-    let id: String?
-    let name: String?
-    let token: String?
-    let avatarUrl: String?
+    public let id: String?
+    public let name: String?
+    public let token: String?
+    public let avatarUrl: String?
     
     public init(id: String?,
          name: String?,
