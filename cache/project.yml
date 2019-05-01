@@ -17,3 +17,4 @@ targets:
       - framework: data.framework
         implicit: true
       - carthage: RxSwift
+      - carthage: RxCocoa

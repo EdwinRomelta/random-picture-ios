@@ -17,4 +17,3 @@ targets:
       - framework: domain.framework
         implicit: true
       - carthage: RxSwift
-      - carthage: RxCoreData

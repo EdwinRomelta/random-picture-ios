@@ -26,4 +26,10 @@ public class Login: CompletableUseCase<LoginParam> {
 public struct LoginParam{
     public let email: String
     public let password: String
+    
+    public init(_ email: String,
+         _ password: String) {
+        self.email = email
+        self.password = password
+    }
 }

@@ -32,11 +32,12 @@ open class CompletableUseCase<Params> {
     /**
      * Executes the current use case.
      */
-    public func execute(completableObserver: @escaping (CompletableEvent) -> Void, params: Params){
+    public func execute(completableObserver: @escaping (CompletableEvent) -> Void, params: Params) -> Disposable{
         subscription = self.buildUseCaseObservable(params)
             .subscribeOn(threadExecutor)
             .observeOn(postExecutionThread)
             .subscribe(completableObserver)
+        return subscription
     }
     
     /**

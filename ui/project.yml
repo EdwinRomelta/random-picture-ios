@@ -24,3 +24,6 @@ targets:
       - framework: remote.framework
         implicit: true
       - carthage: RxSwift
+      - carthage: RxCocoa
+      - carthage: Alamofire
+      - carthage: RxAlamofire
