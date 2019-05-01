@@ -34,7 +34,7 @@ class SingleUseCase<T, Params> {
      */
     public func execute(singleObserver: @escaping (SingleEvent<T>) -> Void, params: Params? = nil) {
        subscription =  self.buildUseCaseObservable(params)
-            .subscribeOn(postExecutionThread)
+            .subscribeOn(threadExecutor)
             .observeOn(postExecutionThread)
             .subscribe(singleObserver)
     }

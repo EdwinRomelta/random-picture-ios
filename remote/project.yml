@@ -19,3 +19,4 @@ targets:
       - carthage: RxSwift
       - carthage: Alamofire
       - carthage: RxAlamofire
+      - carthage: Cleanse

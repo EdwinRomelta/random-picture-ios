@@ -27,3 +27,4 @@ targets:
       - carthage: RxCocoa
       - carthage: Alamofire
       - carthage: RxAlamofire
+      - carthage: Cleanse

@@ -8,19 +8,20 @@
 import domain
 import RxSwift
 import RxCocoa
-
+import Cleanse
 
 private let VALIDATION_EMPTY_EMAIL = 0b1
 private let VALIDATION_EMPTY_PASSWORD = 0b10
 private let VALIDATION_INVALID_EMAIL = 0b100
 
-class LoginViewModel : BaseViewModel{
+public class LoginViewModel : BaseViewModel, Tag{
+    public typealias Element = LoginViewModel
     
     private let loginResponsePublisher : PublishSubject<Resource<Void>>
     let loginResponse : Driver<Resource<Void>>
     private let login : Login
     
-    init(login : Login) {
+    public init(login : Login) {
         self.login = login
         
         loginResponsePublisher = PublishSubject.init()

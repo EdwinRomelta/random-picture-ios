@@ -6,9 +6,25 @@
 //
 
 import UIKit
+import Cleanse
+import presenter
 
-class LoginViewController: UIViewController {
-
+class LoginViewController: UIViewController, Tag {
+    typealias Element = LoginViewController
+    
+    let loginViewModel : LoginViewModel
+    
+    init(loginViewModel : LoginViewModel) {
+        self.loginViewModel = loginViewModel
+        
+        super.init(nibName: nil, bundle: nil)
+    }
+    
+    @available(*, unavailable)
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -26,4 +42,8 @@ class LoginViewController: UIViewController {
     }
     */
 
+    struct Module : Cleanse.Module {
+        static func configure(binder: SingletonBinder) {
+        }
+    }
 }

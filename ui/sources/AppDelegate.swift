@@ -7,27 +7,21 @@
 //
 
 import UIKit
+import Cleanse
+import presenter
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-
+    var loginViewController : LoginViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
-        // Initialize the window
-        window = UIWindow.init(frame: UIScreen.main.bounds)
+        let propertyInjector = try! ComponentFactory.of(ApplicationComponent.self).build(())
+        propertyInjector.injectProperties(into: self)
         
-        // Set Background Color of window
-        window?.backgroundColor = UIColor.white
-        
-        // Allocate memory for an instance of the 'MainViewController' class
-        let loginViewController = LoginViewController()
-        
-        // Set the root view controller of the app's window
+        window!.backgroundColor = UIColor.white
         window!.rootViewController = loginViewController
-        
-        // Make the window visible
         window!.makeKeyAndVisible()
         return true
     }

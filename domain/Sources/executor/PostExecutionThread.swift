@@ -6,7 +6,10 @@
 //
 
 import RxSwift
+import Cleanse
 
-protocol PostThreadExecutor : ImmediateSchedulerType {
-    
+public typealias PostThreadExecutor = ImmediateSchedulerType
+
+public struct PostThreadExecutorImpl : Tag {
+    public typealias Element = ImmediateSchedulerType
 }

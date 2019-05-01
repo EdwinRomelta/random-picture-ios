@@ -35,7 +35,7 @@ open class ObservableUseCase<T, Params> {
      */
     public func execute(observer: @escaping (Event<T>) -> Void, params: Params? = nil) {
        let observable = self.buildUseCaseObservable(params)
-            .subscribeOn(postExecutionThread)
+            .subscribeOn(threadExecutor)
             .observeOn(postExecutionThread)
             .subscribe(observer)
         addDisposable(observable)

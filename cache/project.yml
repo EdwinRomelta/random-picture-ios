@@ -18,3 +18,4 @@ targets:
         implicit: true
       - carthage: RxSwift
       - carthage: RxCocoa
+      - carthage: Cleanse

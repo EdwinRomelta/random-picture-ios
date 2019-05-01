@@ -15,4 +15,5 @@ targets:
         SWIFT_VERSION: 5.0
     dependencies:
       - carthage: RxSwift
+      - carthage: Cleanse
         

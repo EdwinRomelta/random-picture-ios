@@ -16,7 +16,7 @@ open class CompletableUseCase<Params> {
     private let postExecutionThread : PostThreadExecutor
     private var subscription = Disposables.create()
     
-    init(_ threadExecutor : ThreadExecutor,
+    public init(_ threadExecutor : ThreadExecutor,
          _ postExecutionThread: PostThreadExecutor) {
         self.threadExecutor = threadExecutor
         self.postExecutionThread = postExecutionThread

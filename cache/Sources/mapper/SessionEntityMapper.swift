@@ -7,11 +7,15 @@
 
 import data
 
-class SessionEntityMapper: EntityMapper {
+public class SessionEntityMapper: EntityMapper {
     
     typealias cache = CachedSession
     typealias data = SessionEntity
 
+    public init(){
+        
+    }
+    
     func mapFromCached(_ type: CachedSession) -> SessionEntity {
         return SessionEntity(id: type.id,
                              name: type.name,

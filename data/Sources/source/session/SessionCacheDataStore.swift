@@ -8,11 +8,11 @@
 import domain
 import RxSwift
 
-class SessionCacheDataStore: SessionDataStore {
+public class SessionCacheDataStore: SessionDataStore {
     
     private let sessionCache: SessionCache
     
-    init(sessionCache: SessionCache) {
+    public init(sessionCache: SessionCache) {
         self.sessionCache = sessionCache
     }
     

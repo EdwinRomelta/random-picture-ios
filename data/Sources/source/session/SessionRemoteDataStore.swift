@@ -8,11 +8,11 @@
 import domain
 import RxSwift
 
-class SessionRemoteDataStore: SessionDataStore {
+public class SessionRemoteDataStore: SessionDataStore {
     
     private let sessionRemote: SessionRemote
     
-    init(sessionRemote: SessionRemote) {
+    public init(sessionRemote: SessionRemote) {
         self.sessionRemote = sessionRemote
     }
     

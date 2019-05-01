@@ -7,10 +7,14 @@
 
 import domain
 
-class SessionMapper : Mapper{
+public class SessionMapper : Mapper{
     
     typealias entity = SessionEntity
     typealias domain = Session
+    
+    public init(){
+        
+    }
     
     func mapFromEntity(_ type: SessionEntity) -> Session {
         return Session(id: type.id,

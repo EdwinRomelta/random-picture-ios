@@ -6,6 +6,7 @@
 //
 
 import RxSwift
+import Cleanse
 
 public protocol SessionRepository {
     

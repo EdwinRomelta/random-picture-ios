@@ -6,16 +6,17 @@
 //
 
 import RxSwift
+import Cleanse
 
 public class Login: CompletableUseCase<LoginParam> {
     
     private let sessionRepository: SessionRepository
     
-    init(sessionRepository: SessionRepository,
-         threadExecutor : ThreadExecutor,
-         postExecutionThread: PostThreadExecutor) {
+    public init(sessionRepository: SessionRepository,
+         threadExecutor : TaggedProvider<ThreadExecutorImpl>,
+         postExecutionThread: TaggedProvider<PostThreadExecutorImpl>) {
         self.sessionRepository = sessionRepository
-        super.init(threadExecutor, postExecutionThread)
+        super.init(threadExecutor.get(), postExecutionThread.get())
     }
     
     public override func buildUseCaseObservable(_ params: LoginParam) -> Completable {

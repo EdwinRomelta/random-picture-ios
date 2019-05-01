@@ -14,8 +14,11 @@ private let KEY_TOKEN = "token"
 private let KEY_NAME = "name"
 private let KEY_AVATAR = "avatar"
 
-class SessionPreference{
+public class SessionPreference{
     
+    public init(){
+        
+    }
     
     func store(_ cachedSession : CachedSession) -> Completable{
         return Completable.create { completable in

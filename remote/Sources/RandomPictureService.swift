@@ -9,16 +9,17 @@ import domain
 import Alamofire
 import RxAlamofire
 import RxSwift
+import Cleanse
 
-class RandomPictureService{
+public class RandomPictureService{
     
     private let scheduler : ImmediateSchedulerType
     private let baseUrl : String
     
-    init(scheduler : ImmediateSchedulerType,
-         baseUrl : String) {
-        self.scheduler = scheduler
-        self.baseUrl = baseUrl
+    public init(scheduler : TaggedProvider<RemoteExecutorThread>,
+         baseUrl : TaggedProvider<BaseUrl>) {
+        self.scheduler = scheduler.get()
+        self.baseUrl = baseUrl.get()
     }
     
     func login(_ email: String,_ password: String) -> Single<UserModel>{
@@ -36,4 +37,12 @@ class RandomPictureService{
             .map{ try JSONDecoder().decode(UserModel.self, from: $0) }
             .asSingle()
     }
+}
+
+public struct BaseUrl : Tag {
+    public typealias Element = String
+}
+
+public struct RemoteExecutorThread : Tag {
+    public typealias Element = ImmediateSchedulerType
 }

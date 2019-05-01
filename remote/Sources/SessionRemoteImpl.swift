@@ -8,18 +8,18 @@
 import data
 import RxSwift
 
-class SessionRemoteImpl: SessionRemote {
+public class SessionRemoteImpl: SessionRemote {
     
     private let randomPictureService : RandomPictureService
     private let userMapper : UserMapper
     
-    init(randomPictureService : RandomPictureService,
+    public init(randomPictureService : RandomPictureService,
          userMapper : UserMapper) {
         self.randomPictureService = randomPictureService
         self.userMapper = userMapper
     }
     
-    func setSession(_ token: String?) -> Completable {
+    public func setSession(_ token: String?) -> Completable {
         return Completable.create{ completable in
             if let token = token {
                 RandomPictureServiceFactory.addSession(token)
@@ -30,7 +30,7 @@ class SessionRemoteImpl: SessionRemote {
         }
     }
     
-    func doRegister(_ email: String, _ name: String, _ password: String) -> Single<SessionEntity> {
+    public func doRegister(_ email: String, _ name: String, _ password: String) -> Single<SessionEntity> {
         return randomPictureService.register(email, name, password)
             .do(onSuccess: {
                 if let token = $0.token{
@@ -40,7 +40,7 @@ class SessionRemoteImpl: SessionRemote {
             .map { self.userMapper.mapFromRemote($0) }
     }
     
-    func doLogin(_ email: String, _ password: String) -> Single<SessionEntity> {
+    public func doLogin(_ email: String, _ password: String) -> Single<SessionEntity> {
         return randomPictureService.login(email, password)
             .do(onSuccess: {
                 if let token = $0.token{
