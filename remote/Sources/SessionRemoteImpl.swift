@@ -41,7 +41,7 @@ public class SessionRemoteImpl: SessionRemote {
     }
     
     public func doLogin(_ email: String, _ password: String) -> Single<SessionEntity> {
-        return randomPictureService.login(email, password)
+        return randomPictureService.login(LoginRequest(email,password))
             .do(onSuccess: {
                 if let token = $0.token{
                     RandomPictureServiceFactory.addSession(token)

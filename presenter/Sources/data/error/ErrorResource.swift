@@ -7,6 +7,6 @@
 
 import Foundation
 
-protocol ErrorResource{
-    
+public protocol ErrorResource{
+
 }

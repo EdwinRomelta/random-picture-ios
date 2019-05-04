@@ -3,3 +3,4 @@ github "Alamofire/Alamofire" ~> 4.8
 github "RxSwiftCommunity/RxAlamofire" ~> 4.4
 github "RxSwiftCommunity/RxCoreData" ~> 0.5
 github "square/Cleanse"
+github "flipboard/FLEX" ~> 2.0

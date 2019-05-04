@@ -10,7 +10,7 @@ import Foundation
 struct UserModel : Codable{
     let id: String
     let name: String
-    let avatarUrl: String
+    let avatarUrl: String? = nil
     let token: String? = nil
     
     private enum CodingKeys: String, CodingKey {

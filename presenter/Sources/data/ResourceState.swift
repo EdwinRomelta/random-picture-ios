@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum ResourceState {
+public enum ResourceState {
     case LOADING
     case SUCCESS
     case ERROR

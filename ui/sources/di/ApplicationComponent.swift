@@ -15,8 +15,6 @@ struct ApplicationComponent : Cleanse.RootComponent {
     
     // Required function from Cleanse.RootComponent protocol.
     static func configure(binder: Binder<Singleton>) {
-        binder.include(module: UIWindow.Module.self)
-        
         binder.include(module: UIModule.self)
         binder.include(module: PresenterModule.self)
         binder.include(module: DomainModule.self)
@@ -35,9 +33,7 @@ struct ApplicationComponent : Cleanse.RootComponent {
 }
 
 extension AppDelegate {
-    func injectProperties(_ window: UIWindow,
-                          _ loginViewController : LoginViewController) {
+    func injectProperties(_ window: UIWindow) {
         self.window = window
-        self.loginViewController = loginViewController
     }
 }

@@ -28,3 +28,4 @@ targets:
       - carthage: Alamofire
       - carthage: RxAlamofire
       - carthage: Cleanse
+      - carthage: FLEX

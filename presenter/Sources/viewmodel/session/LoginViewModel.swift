@@ -14,21 +14,23 @@ private let VALIDATION_EMPTY_EMAIL = 0b1
 private let VALIDATION_EMPTY_PASSWORD = 0b10
 private let VALIDATION_INVALID_EMAIL = 0b100
 
-public class LoginViewModel : BaseViewModel, Tag{
-    public typealias Element = LoginViewModel
+public class LoginViewModel : BaseViewModel{
     
-    private let loginResponsePublisher : PublishSubject<Resource<Void>>
-    let loginResponse : Driver<Resource<Void>>
+    public let loginResponse : Driver<Resource<Void>>
+    private let dispose = DisposeBag()
+    
     private let login : Login
+    private let loginResponsePublisher : PublishSubject<Resource<Void>>
     
     public init(login : Login) {
         self.login = login
         
         loginResponsePublisher = PublishSubject.init()
-        loginResponse = loginResponsePublisher.asDriver(onErrorJustReturn: Resource<Void>.error(error: DefaultErrorResource()))
+        loginResponsePublisher.onNext(Resource.loading())
+        loginResponse = loginResponsePublisher.asDriver(onErrorJustReturn: Resource<Void>.error(error: DialogErrorResource("Oops, something went wrong")))
     }
     
-    func doLogin(_ email: String,_ password: String) {
+    public func doLogin(_ email: String,_ password: String) {
         loginResponsePublisher.onNext(Resource.loading())
         var validation = 0
         if (email.isEmpty) {
@@ -41,7 +43,7 @@ public class LoginViewModel : BaseViewModel, Tag{
             validation = validation | VALIDATION_INVALID_EMAIL
         }
         if (validation > 0) {
-            loginResponsePublisher.onNext(Resource<Void>.error(error: DefaultErrorResource()))
+            loginResponsePublisher.onNext(Resource<Void>.error(error: DialogErrorResource("Oops, something went wrong")))
         } else {
             self.compositeDisposable.insert(login.execute(completableObserver: loginSubscriber(event:), params: LoginParam(email, password)))
         }
@@ -52,7 +54,7 @@ public class LoginViewModel : BaseViewModel, Tag{
             case .completed:
                 loginResponsePublisher.onNext(Resource<Void>.success(data: ()))
             case .error(_):
-                loginResponsePublisher.onNext(Resource<Void>.error(error: DefaultErrorResource()))
+                loginResponsePublisher.onNext(Resource<Void>.error(error: DialogErrorResource("Oops, something went wrong")))
         }
     }
 }

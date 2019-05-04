@@ -7,16 +7,21 @@
 
 import UIKit
 import Cleanse
+import data
 import presenter
 
-class LoginViewController: UIViewController, Tag {
-    typealias Element = LoginViewController
+class LoginViewController: BaseViewController {
     
-    let loginViewModel : LoginViewModel
+    @IBOutlet weak var emailTextField: UITextField!
+    @IBOutlet weak var passwordTextField: UITextField!
+    @IBOutlet weak var registerButton: UILabel!
+    @IBOutlet weak var loginButton: UIButton!
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
     
-    init(loginViewModel : LoginViewModel) {
-        self.loginViewModel = loginViewModel
-        
+    var loginViewModel : LoginViewModel!
+    var spinner = UIActivityIndicatorView(style: .whiteLarge)
+    
+    init() {
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -27,8 +32,34 @@ class LoginViewController: UIViewController, Tag {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
         // Do any additional setup after loading the view.
+        self.loginViewModel.loginResponse.drive(onNext :{ resourse in
+                switch resourse.state{
+                    case .LOADING:
+                        self.emailTextField.isUserInteractionEnabled = false
+                        self.passwordTextField.isUserInteractionEnabled = false
+                        self.registerButton.visibility = .gone
+                        self.loginButton.visibility = .gone
+                        self.loadingIndicator.visibility = .visible
+                    case .SUCCESS:
+                        self.emailTextField.isUserInteractionEnabled = true
+                        self.passwordTextField.isUserInteractionEnabled = true
+                        self.registerButton.visibility = .visible
+                        self.loginButton.visibility = .visible
+                        self.loadingIndicator.visibility = .gone
+                    case .ERROR:
+                        self.emailTextField.isUserInteractionEnabled = true
+                        self.passwordTextField.isUserInteractionEnabled = true
+                        self.registerButton.visibility = .visible
+                        self.loginButton.visibility = .visible
+                        self.loadingIndicator.visibility = .gone
+                        guard let errorResource = resourse.error else {
+                            return
+                        }
+                        
+                        self.show(errorResource)
+            }
+        }).disposed(by: disposeBag)
     }
 
 
@@ -41,9 +72,16 @@ class LoginViewController: UIViewController, Tag {
         // Pass the selected object to the new view controller.
     }
     */
+    
+    @IBAction func onLogin(_ sender: Any) {
+        loginViewModel.doLogin(emailTextField.text ?? "",
+                               passwordTextField.text ?? "")
+    }
+}
 
-    struct Module : Cleanse.Module {
-        static func configure(binder: SingletonBinder) {
-        }
+
+extension LoginViewController {
+    func injectProperties(_ loginViewModel : LoginViewModel) {
+        self.loginViewModel = loginViewModel
     }
 }

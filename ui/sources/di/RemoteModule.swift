@@ -27,7 +27,7 @@ struct RemoteModule : Module {
             .bind(String.self)
             .tagged(with: BaseUrl.self)
             .sharedInScope()
-            .to(value: "https://us-central1-random-picture.cloudfunctions.net/api/")
+            .to(value: "https://random-picture.appspot.com/api")
         
         binder
             .bind()

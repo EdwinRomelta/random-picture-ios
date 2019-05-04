@@ -12,6 +12,11 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LoginViewController" customModule="ui" customModuleProvider="target">
             <connections>
+                <outlet property="emailTextField" destination="UIT-vj-LQb" id="0Xy-2a-h5f"/>
+                <outlet property="loadingIndicator" destination="Ii3-Dl-5ae" id="Uop-Ia-GTe"/>
+                <outlet property="loginButton" destination="WSD-E6-kWO" id="RRw-2O-Fm6"/>
+                <outlet property="passwordTextField" destination="xFh-B1-RNn" id="qzN-fa-dtM"/>
+                <outlet property="registerButton" destination="wB3-ph-RVi" id="6z3-hu-qtx"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -42,23 +47,39 @@
                     <rect key="frame" x="20" y="450" width="374" height="30"/>
                     <nil key="textColor"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <textInputTraits key="textInputTraits"/>
+                    <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                 </textField>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="WSD-E6-kWO">
                     <rect key="frame" x="20" y="488" width="374" height="30"/>
                     <state key="normal" title="Login"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="visibilityState" value="visible"/>
+                    </userDefinedRuntimeAttributes>
+                    <connections>
+                        <action selector="onLogin:" destination="-1" eventType="touchUpInside" id="UHQ-tQ-xnD"/>
+                    </connections>
                 </button>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="No account yet? Create one" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="wB3-ph-RVi">
                     <rect key="frame" x="20" y="526" width="374" height="21"/>
                     <fontDescription key="fontDescription" name=".AppleSystemUIFont" family=".AppleSystemUIFont" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="visibilityState" value="visible"/>
+                    </userDefinedRuntimeAttributes>
                 </label>
+                <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="gray" translatesAutoresizingMaskIntoConstraints="NO" id="Ii3-Dl-5ae">
+                    <rect key="frame" x="197" y="511" width="20" height="20"/>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="string" keyPath="visibilityState" value="gone"/>
+                    </userDefinedRuntimeAttributes>
+                </activityIndicatorView>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="6Ya-eI-W3O" firstAttribute="leading" secondItem="UIT-vj-LQb" secondAttribute="leading" id="1Gy-62-d3W"/>
                 <constraint firstItem="xFh-B1-RNn" firstAttribute="top" secondItem="d1C-Mk-K5f" secondAttribute="bottom" constant="8" symbolic="YES" id="6me-SB-AfJ"/>
+                <constraint firstItem="Ii3-Dl-5ae" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="197" id="7FQ-Ro-yXe"/>
                 <constraint firstItem="UIT-vj-LQb" firstAttribute="leading" secondItem="d1C-Mk-K5f" secondAttribute="leading" id="GlJ-Mw-qXn"/>
                 <constraint firstItem="UIT-vj-LQb" firstAttribute="trailing" secondItem="xFh-B1-RNn" secondAttribute="trailing" id="KGW-AN-6GS"/>
                 <constraint firstItem="d1C-Mk-K5f" firstAttribute="top" secondItem="UIT-vj-LQb" secondAttribute="bottom" constant="8" symbolic="YES" id="Krh-ht-IdM"/>
@@ -73,6 +94,8 @@
                 <constraint firstItem="xFh-B1-RNn" firstAttribute="leading" secondItem="WSD-E6-kWO" secondAttribute="leading" id="jr6-vz-znQ"/>
                 <constraint firstItem="WSD-E6-kWO" firstAttribute="leading" secondItem="wB3-ph-RVi" secondAttribute="leading" id="jy9-yb-CuU"/>
                 <constraint firstItem="6Ya-eI-W3O" firstAttribute="leading" secondItem="fnl-2z-Ty3" secondAttribute="leading" constant="20" id="khb-0Q-bhV"/>
+                <constraint firstItem="Ii3-Dl-5ae" firstAttribute="top" secondItem="xFh-B1-RNn" secondAttribute="bottom" constant="31" id="tH9-Ce-Fry"/>
+                <constraint firstItem="fnl-2z-Ty3" firstAttribute="trailing" secondItem="Ii3-Dl-5ae" secondAttribute="trailing" constant="197" id="tOB-B6-8da"/>
                 <constraint firstItem="WSD-E6-kWO" firstAttribute="top" secondItem="xFh-B1-RNn" secondAttribute="bottom" constant="8" symbolic="YES" id="x6c-es-mvo"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="fnl-2z-Ty3"/>

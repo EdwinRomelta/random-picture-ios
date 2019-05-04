@@ -6,6 +6,7 @@
 //  Copyright © 2019 Edwin. All rights reserved.
 //
 
+import FLEX
 import UIKit
 import Cleanse
 import presenter
@@ -14,14 +15,16 @@ import presenter
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     var window: UIWindow?
-    var loginViewController : LoginViewController?
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        #if DEBUG
+            FLEXManager.shared().showExplorer()
+        #endif
+        
         let propertyInjector = try! ComponentFactory.of(ApplicationComponent.self).build(())
         propertyInjector.injectProperties(into: self)
         
         window!.backgroundColor = UIColor.white
-        window!.rootViewController = loginViewController
         window!.makeKeyAndVisible()
         return true
     }

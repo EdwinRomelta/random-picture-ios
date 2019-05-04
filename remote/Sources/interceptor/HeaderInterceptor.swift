@@ -17,6 +17,8 @@ class HeaderInterceptor : RequestAdapter{
         if (token != nil) {
             urlRequest.setValue(token, forHTTPHeaderField: HEADER_AUTHORIZATION)
         }
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        urlRequest.setValue("application/json", forHTTPHeaderField: "Accept")
         return urlRequest
     }
     

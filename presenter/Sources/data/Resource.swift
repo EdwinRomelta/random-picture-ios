@@ -7,11 +7,11 @@
 
 import Foundation
 
-class Resource <T : Any>{
+public class Resource <T : Any>{
     
-    let state : ResourceState
-    let data : T?
-    let error : ErrorResource?
+    public let state : ResourceState
+    public let data : T?
+    public let error : ErrorResource?
     
     private init(_ state : ResourceState,
                  _ data : T?,
@@ -26,7 +26,7 @@ class Resource <T : Any>{
     }
     
     static func error<T>(error : ErrorResource)-> Resource<T> {
-        return Resource<T>(ResourceState.SUCCESS,nil,error)
+        return Resource<T>(ResourceState.ERROR,nil,error)
     }
     
     static func loading()-> Resource<T> {
