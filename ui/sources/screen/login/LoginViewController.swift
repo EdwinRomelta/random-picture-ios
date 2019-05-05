@@ -9,9 +9,12 @@ import UIKit
 import Cleanse
 import data
 import presenter
+import Rswift
 
 class LoginViewController: BaseViewController {
     
+    @IBOutlet weak var emailErrorLabel: UILabel!
+    @IBOutlet weak var passwordErrorLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
     @IBOutlet weak var passwordTextField: UITextField!
     @IBOutlet weak var registerButton: UILabel!
@@ -38,6 +41,8 @@ class LoginViewController: BaseViewController {
                     case .LOADING:
                         self.emailTextField.isUserInteractionEnabled = false
                         self.passwordTextField.isUserInteractionEnabled = false
+                        self.emailErrorLabel.visibility = .gone
+                        self.passwordErrorLabel.visibility = .gone
                         self.registerButton.visibility = .gone
                         self.loginButton.visibility = .gone
                         self.loadingIndicator.visibility = .visible
@@ -56,8 +61,23 @@ class LoginViewController: BaseViewController {
                         guard let errorResource = resourse.error else {
                             return
                         }
-                        
-                        self.show(errorResource)
+                        if let validationErrorResource = errorResource as? ValidationErrorResource {
+                            if (validationErrorResource.errorCode & LoginViewModel.VALIDATION_EMPTY_EMAIL > 0) {
+                                self.emailErrorLabel.text = R.string.localizable.signupscreen_erroremptyemail()
+                                self.emailErrorLabel.visibility = .visible
+                            } else if (validationErrorResource.errorCode & LoginViewModel.VALIDATION_INVALID_EMAIL > 0) {
+                                self.emailErrorLabel.text = R.string.localizable.signupscreen_errorinvalidemail()
+                                self.emailErrorLabel.visibility = .visible
+                            }
+                            
+                            if (validationErrorResource.errorCode & LoginViewModel.VALIDATION_EMPTY_PASSWORD > 0) {
+                                self.passwordErrorLabel.text = R.string.localizable.signupscreen_erroremptypassword()
+                                self.passwordErrorLabel.visibility = .visible
+                            }
+                        }
+                        if let dialogErrorResource = errorResource as? DialogErrorResource {
+                            dialogErrorResource.show(self)
+                        }
             }
         }).disposed(by: disposeBag)
     }

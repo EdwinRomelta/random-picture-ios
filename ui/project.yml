@@ -6,13 +6,20 @@ targets:
     type: application
     platform: iOS
     deploymentTarget: 10.0
-    sources: [Sources]
+    sources: [Sources,Resources]
     settings:
       base:
         DEVELOPMENT_TEAM: RCM6P6GKXX
         PRODUCT_BUNDLE_IDENTIFIER: "com.edwin.ui"
         SWIFT_VERSION: 5.0
         TARGETED_DEVICE_FAMILY: 1
+    preBuildScripts:
+      - script: "\"$SRCROOT/rswift\" generate \"$SRCROOT/resources/R.generated.swift\""
+        name: R.swift
+        inputFiles:
+          - $TEMP_DIR/rswift-lastrun
+        outputFiles:
+          - $SRCROOT/resources/R.generated.swift
     dependencies:
       - framework: presenter.framework
         implicit: true
@@ -30,6 +37,7 @@ targets:
       - carthage: RxAlamofire
       - carthage: Cleanse
       - carthage: FLEX
+      - carthage: Rswift
 schemes:
   app:
     build:

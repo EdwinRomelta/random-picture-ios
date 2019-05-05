@@ -10,11 +10,12 @@ import RxSwift
 import RxCocoa
 import Cleanse
 
-private let VALIDATION_EMPTY_EMAIL = 0b1
-private let VALIDATION_EMPTY_PASSWORD = 0b10
-private let VALIDATION_INVALID_EMAIL = 0b100
 
 public class LoginViewModel : BaseViewModel{
+    
+    public static let VALIDATION_EMPTY_EMAIL = 0b1
+    public static let VALIDATION_EMPTY_PASSWORD = 0b10
+    public static let VALIDATION_INVALID_EMAIL = 0b100
     
     public let loginResponse : Driver<Resource<Void>>
     private let dispose = DisposeBag()
@@ -34,16 +35,16 @@ public class LoginViewModel : BaseViewModel{
         loginResponsePublisher.onNext(Resource.loading())
         var validation = 0
         if (email.isEmpty) {
-            validation = validation | VALIDATION_EMPTY_EMAIL
+            validation = validation | LoginViewModel.VALIDATION_EMPTY_EMAIL
         }
         if (password.isEmpty) {
-            validation = validation | VALIDATION_EMPTY_PASSWORD
+            validation = validation | LoginViewModel.VALIDATION_EMPTY_PASSWORD
         }
         if (!email.isEmail) {
-            validation = validation | VALIDATION_INVALID_EMAIL
+            validation = validation | LoginViewModel.VALIDATION_INVALID_EMAIL
         }
         if (validation > 0) {
-            loginResponsePublisher.onNext(Resource<Void>.error(error: DialogErrorResource("Oops, something went wrong")))
+            loginResponsePublisher.onNext(Resource<Void>.error(error: ValidationErrorResource(validation)))
         } else {
             self.compositeDisposable.insert(login.execute(completableObserver: loginSubscriber(event:), params: LoginParam(email, password)))
         }

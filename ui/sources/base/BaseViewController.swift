@@ -13,18 +13,13 @@ class BaseViewController : UIViewController{
     
     let disposeBag = DisposeBag()
     
-    func show(_ errorResource : ErrorResource){
-        if let dialogErrorResourse = errorResource as? DialogErrorResource {
-            dialogErrorResourse.show(self)
-        }
-    }
 }
 
 extension DialogErrorResource {
     
-    fileprivate func show(_ viewController : UIViewController){
-        let alert = UIAlertController(title: "Random Picture", message: message, preferredStyle: .alert)
-        alert.addAction(UIAlertAction(title: "OK", style: .default, handler: nil))
+    func show(_ viewController : UIViewController){
+        let alert = UIAlertController(title: R.string.localizable.appname(), message: message, preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: R.string.localizable.dialog_ok(), style: .default, handler: nil))
         viewController.present(alert, animated: true)
     }
 }

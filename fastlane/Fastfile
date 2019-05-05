@@ -18,21 +18,18 @@ default_platform(:ios)
 platform :ios do
 
   before_all do
+    carthage(cache_builds: true, platform: "iOS")
     xcodegen(spec: "ui/project.yml")
     xcodegen(spec: "presenter/project.yml")
     xcodegen(spec: "domain/project.yml")
     xcodegen(spec: "data/project.yml")
     xcodegen(spec: "cache/project.yml")
     xcodegen(spec: "remote/project.yml")
-    carthage(cache_builds: true, platform: "iOS")
   end
   
   desc "Setup project"
   lane :setup do
-  end
-
-  desc "Build simulator for CI"
-  lane :buildCI do
     xcbuild(workspace: "RandomPicture.xcworkspace", scheme: "app", configuration: "Debug", destination: "platform=iOS Simulator,name=iPhone Xʀ")
   end
+
 end

@@ -1,0 +1,16 @@
+/* 
+  Localizable.strings
+  ui
+
+  Created by ImNotPro on 05/05/19.
+  
+*/
+"signupscreen_emaillabel" = "Email";
+"signupscreen_passwordlabel" = "Kata sandi";
+"signupscreen_loginbutton" = "Masuk";
+"signupscreen_registerbutton" = "Belum punya akun, daftar sekarang";
+"signupscreen_erroremptyemail"="Email kosong";
+"signupscreen_erroremptypassword"="Kata sandi kosong";
+"signupscreen_errorinvalidemail"="Email tidak valid";
+"error_default" = "Oops, ada suatu kesalahan";
+"dialog_ok" = "Ok";

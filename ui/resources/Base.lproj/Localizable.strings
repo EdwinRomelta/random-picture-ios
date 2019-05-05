@@ -1,0 +1,17 @@
+/* 
+  Localizable.strings
+  ui
+
+  Created by ImNotPro on 05/05/19.
+  
+*/
+"appname" = "Random Picture";
+"signupscreen_emaillabel" = "Email";
+"signupscreen_passwordlabel" = "Password";
+"signupscreen_loginbutton" = "Login";
+"signupscreen_registerbutton" = "No account yet? Create one";
+"signupscreen_erroremptyemail"="Empty Email";
+"signupscreen_erroremptypassword"="Empty Password";
+"signupscreen_errorinvalidemail"="Invalid Email";
+"error_default" = "Oops, something went wrong";
+"dialog_ok" = "Ok";

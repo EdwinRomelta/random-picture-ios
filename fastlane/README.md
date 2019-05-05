@@ -21,11 +21,6 @@ or alternatively using `brew cask install fastlane`
 fastlane ios setup
 ```
 Setup project
-### ios ciBuild
-```
-fastlane ios ciBuild
-```
-Build simulator for CI
 
 ----
 

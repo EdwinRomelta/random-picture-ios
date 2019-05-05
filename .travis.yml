@@ -2,14 +2,16 @@ language: swift
 osx_image: xcode10.2
 
 cache:
+  bundler: true
   directories:
   - Carthage
+  - ui/resources
 
 install:
   - bundle install
 
 script:
-  - fastlane buildCI
+  - fastlane setup
 
 notifications:
   slack:

@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import Rswift
 
 extension UIView {
     
@@ -45,7 +46,7 @@ extension UIView {
     private func setVisibility(_ visibility: Visibility) {
         let constraints = self.constraints.filter({$0.firstAttribute == .height && $0.constant == 0 && $0.secondItem == nil && ($0.firstItem as? UIView) == self})
         let constraint = (constraints.first)
-        
+
         switch visibility {
         case .visible:
             constraint?.isActive = false

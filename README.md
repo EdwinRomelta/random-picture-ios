@@ -13,15 +13,15 @@ For android version see in [here](https://github.com/EdwinRomelta/random-picture
 * Continues Integration ([Travis-CI](https://travis-ci.org/))
 
 ## Dependency
-* [Alomofire](https://github.com/Alamofire/Alamofire)
-* [RxAlomofire](https://github.com/RxSwiftCommunity/RxAlamofire)
+* [Alomofire](https://github.com/Alamofire/Alamofire) - Elegant HTTP Networking in Swift
+* [RxAlomofire](https://github.com/RxSwiftCommunity/RxAlamofire) - RxSwift wrapper around the elegant HTTP networking in Swift Alamofire
   
 ## Tools
-* [XcodeGen](https://github.com/yonaskolb/XcodeGen) - Xcode project generator
-* [Carthage](https://github.com/Carthage/Carthage) - Dependency Manager
-* [FLEX](https://github.com/Flipboard/FLEX) - Debuging tools
-* [Fastlane](https://fastlane.tools/) - App build automation
-
+* [XcodeGen](https://github.com/yonaskolb/XcodeGen) - A Swift command line tool for generating your Xcode project
+* [Carthage](https://github.com/Carthage/Carthage) - A simple, decentralized dependency manager for Cocoa
+* [FLEX](https://github.com/Flipboard/FLEX) - An in-app debugging and exploration tool for iOS
+* [Fastlane](https://fastlane.tools/) - The easiest way to automate building and releasing your iOS and Android apps 
+* [R.swift](https://github.com/mac-cain13/R.swift) - Get strong typed, autocompleted resources like images, fonts and segues in Swift projects
 
 ## Reference
 * [CleanArchitectureRxSwift](https://github.com/sergdort/CleanArchitectureRxSwift) - Clean architecture with RxSwift
