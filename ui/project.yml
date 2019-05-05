@@ -12,6 +12,7 @@ targets:
         DEVELOPMENT_TEAM: RCM6P6GKXX
         PRODUCT_BUNDLE_IDENTIFIER: "com.edwin.ui"
         SWIFT_VERSION: 5.0
+        TARGETED_DEVICE_FAMILY: 1
     dependencies:
       - framework: presenter.framework
         implicit: true
@@ -29,3 +30,24 @@ targets:
       - carthage: RxAlamofire
       - carthage: Cleanse
       - carthage: FLEX
+schemes:
+  app:
+    build:
+      targets:
+        ui: all
+    run:
+      config: Debug
+      environmentVariables:
+        QA: true
+    test:
+      config: Debug
+      environmentVariables:
+        - variable: QA
+          value: true
+    profile:
+      config: Debug
+    analyze:
+      config: Debug
+    archive:
+      config: Debug
+      revealArchiveInOrganizer: false

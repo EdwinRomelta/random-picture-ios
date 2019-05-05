@@ -1,0 +1,38 @@
+# This file contains the fastlane.tools configuration
+# You can find the documentation at https://docs.fastlane.tools
+#
+# For a list of all available actions, check out
+#
+#     https://docs.fastlane.tools/actions
+#
+# For a list of all available plugins, check out
+#
+#     https://docs.fastlane.tools/plugins/available-plugins
+#
+
+# Uncomment the line if you want fastlane to automatically update itself
+# update_fastlane
+
+default_platform(:ios)
+
+platform :ios do
+
+  before_all do
+    xcodegen(spec: "ui/project.yml")
+    xcodegen(spec: "presenter/project.yml")
+    xcodegen(spec: "domain/project.yml")
+    xcodegen(spec: "data/project.yml")
+    xcodegen(spec: "cache/project.yml")
+    xcodegen(spec: "remote/project.yml")
+    carthage(cache_builds: true, platform: "iOS")
+  end
+  
+  desc "Setup project"
+  lane :setup do
+  end
+
+  desc "Build simulator for CI"
+  lane :buildCI do
+    xcbuild(workspace: "RandomPicture.xcworkspace", scheme: "app", configuration: "Debug", destination: "platform=iOS Simulator,name=iPhone Xʀ")
+  end
+end
