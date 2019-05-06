@@ -7,7 +7,7 @@
 
 import RxSwift
 
-public class BaseViewModel{
-    
+public class BaseViewModel {
+
     internal let compositeDisposable = CompositeDisposable()
 }

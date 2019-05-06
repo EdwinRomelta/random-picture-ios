@@ -7,12 +7,12 @@
 
 import Foundation
 
-struct UserModel : Codable{
+struct UserModel: Codable {
     let id: String
     let name: String
     let avatarUrl: String? = nil
     let token: String? = nil
-    
+
     private enum CodingKeys: String, CodingKey {
         case id = "id"
         case name = "name"

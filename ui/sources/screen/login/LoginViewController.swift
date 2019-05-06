@@ -12,7 +12,7 @@ import presenter
 import Rswift
 
 class LoginViewController: BaseViewController {
-    
+
     @IBOutlet weak var emailErrorLabel: UILabel!
     @IBOutlet weak var passwordErrorLabel: UILabel!
     @IBOutlet weak var emailTextField: UITextField!
@@ -20,24 +20,24 @@ class LoginViewController: BaseViewController {
     @IBOutlet weak var registerButton: UILabel!
     @IBOutlet weak var loginButton: UIButton!
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
-    
-    var loginViewModel : LoginViewModel!
+
+    var loginViewModel: LoginViewModel!
     var spinner = UIActivityIndicatorView(style: .whiteLarge)
-    
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        self.loginViewModel.loginResponse.drive(onNext :{ resourse in
-                switch resourse.state{
+        self.loginViewModel.loginResponse.drive(onNext: { resourse in
+                switch resourse.state {
                     case .LOADING:
                         self.emailTextField.isUserInteractionEnabled = false
                         self.passwordTextField.isUserInteractionEnabled = false
@@ -62,15 +62,15 @@ class LoginViewController: BaseViewController {
                             return
                         }
                         if let validationErrorResource = errorResource as? ValidationErrorResource {
-                            if (validationErrorResource.errorCode & LoginViewModel.VALIDATION_EMPTY_EMAIL > 0) {
+                            if (validationErrorResource.errorCode & LoginViewModel.validationEmptyEmail > 0) {
                                 self.emailErrorLabel.text = R.string.localizable.signupscreen_erroremptyemail()
                                 self.emailErrorLabel.visibility = .visible
-                            } else if (validationErrorResource.errorCode & LoginViewModel.VALIDATION_INVALID_EMAIL > 0) {
+                            } else if (validationErrorResource.errorCode & LoginViewModel.validationInvalidEmail > 0) {
                                 self.emailErrorLabel.text = R.string.localizable.signupscreen_errorinvalidemail()
                                 self.emailErrorLabel.visibility = .visible
                             }
-                            
-                            if (validationErrorResource.errorCode & LoginViewModel.VALIDATION_EMPTY_PASSWORD > 0) {
+
+                            if (validationErrorResource.errorCode & LoginViewModel.validationEmptyPassword > 0) {
                                 self.passwordErrorLabel.text = R.string.localizable.signupscreen_erroremptypassword()
                                 self.passwordErrorLabel.visibility = .visible
                             }
@@ -82,7 +82,6 @@ class LoginViewController: BaseViewController {
         }).disposed(by: disposeBag)
     }
 
-
     /*
     // MARK: - Navigation
 
@@ -92,16 +91,15 @@ class LoginViewController: BaseViewController {
         // Pass the selected object to the new view controller.
     }
     */
-    
+
     @IBAction func onLogin(_ sender: Any) {
         loginViewModel.doLogin(emailTextField.text ?? "",
                                passwordTextField.text ?? "")
     }
 }
 
-
 extension LoginViewController {
-    func injectProperties(_ loginViewModel : LoginViewModel) {
+    func injectProperties(_ loginViewModel: LoginViewModel) {
         self.loginViewModel = loginViewModel
     }
 }

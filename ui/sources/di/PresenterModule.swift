@@ -8,12 +8,12 @@
 import Cleanse
 import presenter
 
-struct PresenterModule : Module {
-    
+struct PresenterModule: Module {
+
     static func configure(binder: Binder<Unscoped>) {
         binder
             .bind()
             .to(factory: LoginViewModel.init)
     }
-    
+
 }

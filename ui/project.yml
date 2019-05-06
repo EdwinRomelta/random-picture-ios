@@ -19,7 +19,9 @@ targets:
         inputFiles:
           - $TEMP_DIR/rswift-lastrun
         outputFiles:
-          - $SRCROOT/resources/R.generated.swift
+          - $SRCROOT/resources/R.generated.swift      
+      - script: "if which swiftlint >/dev/null; then swiftlint ; else echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\" ; fi"
+        name: SwiftLint    
     dependencies:
       - framework: presenter.framework
         implicit: true

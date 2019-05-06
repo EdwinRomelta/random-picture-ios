@@ -31,5 +31,10 @@ platform :ios do
   lane :setup do
     xcbuild(workspace: "RandomPicture.xcworkspace", scheme: "app", configuration: "Debug", destination: "platform=iOS Simulator,name=iPhone Xʀ")
   end
+  
+  desc "Swiftlint autocorrect"
+  lane :autocorrect do
+    swiftlint(mode: :autocorrect)
+  end
 
 end

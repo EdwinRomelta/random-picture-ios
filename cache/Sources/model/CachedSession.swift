@@ -5,13 +5,12 @@
 //  Created by ImNotPro on 27/04/19.
 //
 
-
-class CachedSession{
+class CachedSession {
     let id: String?
     let name: String?
     let token: String?
     let avatarUrl: String?
-    
+
     public init(id: String?,
                 name: String?,
                 token: String?,

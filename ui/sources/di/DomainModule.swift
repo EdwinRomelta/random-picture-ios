@@ -8,8 +8,8 @@
 import Cleanse
 import domain
 
-struct DomainModule : Module {
-    
+struct DomainModule: Module {
+
     static func configure(binder: SingletonBinder) {
         binder
             .bind()

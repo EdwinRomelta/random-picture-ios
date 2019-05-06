@@ -12,8 +12,8 @@ class RootViewController: UIViewController {
 
     var splashInjector: PropertyInjector<SplashViewController>
     var loginInjector: PropertyInjector<LoginViewController>
-    var currentScreen : UIViewController
-    
+    var currentScreen: UIViewController
+
     init(
         splashInjector: PropertyInjector<SplashViewController>,
         loginInjector: PropertyInjector<LoginViewController>) {
@@ -24,12 +24,12 @@ class RootViewController: UIViewController {
         self.currentScreen = splashViewController
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         addChild(currentScreen)
@@ -37,7 +37,7 @@ class RootViewController: UIViewController {
         view.addSubview(currentScreen.view)
         currentScreen.didMove(toParent: self)
     }
-    
+
     func toLoginScreen() {
         let loginViewController = LoginViewController()
         loginInjector.injectProperties(into: loginViewController)
@@ -54,12 +54,18 @@ class RootViewController: UIViewController {
 }
 
 extension AppDelegate {
-    
+
     static var shared: AppDelegate {
-        return UIApplication.shared.delegate as! AppDelegate
+        if let appDelegate = UIApplication.shared.delegate as? AppDelegate {
+            return appDelegate
+        }
+        fatalError("Failed to casting app delegate")
     }
-    
+
     var router: RootViewController {
-        return window!.rootViewController as! RootViewController
+        if let rootViewController =   window?.rootViewController as? RootViewController {
+            return rootViewController
+        }
+        fatalError("Failed to casting rootViewController")
     }
 }

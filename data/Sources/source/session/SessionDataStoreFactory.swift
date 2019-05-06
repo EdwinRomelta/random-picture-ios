@@ -7,22 +7,22 @@
 
 import Foundation
 
-public class SessionDataStoreFactory{
-    
+public class SessionDataStoreFactory {
+
     private let sessionCacheDataStore: SessionCacheDataStore
     private let sessionRemoteDataStore: SessionRemoteDataStore
-    
+
     public init(sessionCacheDataStore: SessionCacheDataStore,
-         sessionRemoteDataStore: SessionRemoteDataStore){
+         sessionRemoteDataStore: SessionRemoteDataStore) {
         self.sessionCacheDataStore = sessionCacheDataStore
         self.sessionRemoteDataStore = sessionRemoteDataStore
     }
-    
-    func retrieveCacheDataStore() -> SessionCacheDataStore{
+
+    func retrieveCacheDataStore() -> SessionCacheDataStore {
         return sessionCacheDataStore
     }
-    
-    func retrieveRemoteDataStore() -> SessionRemoteDataStore{
+
+    func retrieveRemoteDataStore() -> SessionRemoteDataStore {
         return sessionRemoteDataStore
     }
 }

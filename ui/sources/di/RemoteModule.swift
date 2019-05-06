@@ -10,30 +10,30 @@ import RxSwift
 import data
 import remote
 
-struct RemoteModule : Module {
+struct RemoteModule: Module {
     static func configure(binder: SingletonBinder) {
         binder
             .bind(ImmediateSchedulerType.self)
             .tagged(with: RemoteExecutorThread.self)
             .sharedInScope()
             .to(value: ConcurrentDispatchQueueScheduler(qos: .background))
-        
+
         binder
             .bind()
             .sharedInScope()
             .to(factory: RandomPictureService.init)
-        
+
         binder
             .bind(String.self)
             .tagged(with: BaseUrl.self)
             .sharedInScope()
             .to(value: "https://random-picture.appspot.com/api")
-        
+
         binder
             .bind()
             .sharedInScope()
             .to(factory: UserMapper.init)
-        
+
         binder
             .bind(SessionRemote.self)
             .sharedInScope()

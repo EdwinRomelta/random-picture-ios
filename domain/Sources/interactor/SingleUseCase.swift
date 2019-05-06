@@ -11,24 +11,24 @@ import RxSwift
  * Abstract class for a UseCase that returns an instance of a [Single].
  */
 class SingleUseCase<T, Params> {
-    
-    private let threadExecutor : ThreadExecutor
-    private let postExecutionThread : PostThreadExecutor
+
+    private let threadExecutor: ThreadExecutor
+    private let postExecutionThread: PostThreadExecutor
     private var subscription = Disposables.create()
-    
-    init(threadExecutor : ThreadExecutor,
+
+    init(threadExecutor: ThreadExecutor,
         postExecutionThread: PostThreadExecutor) {
         self.threadExecutor = threadExecutor
         self.postExecutionThread = postExecutionThread
     }
-    
+
     /**
      * Builds a [Single] which will be used when the current [SingleUseCase] is executed.
      */
-    func buildUseCaseObservable(_ params: Params? = nil) -> Single<T>{
+    func buildUseCaseObservable(_ params: Params? = nil) -> Single<T> {
         return Single.never()
     }
-    
+
     /**
      * Executes the current use case.
      */
@@ -38,11 +38,11 @@ class SingleUseCase<T, Params> {
             .observeOn(postExecutionThread)
             .subscribe(singleObserver)
     }
-    
+
     /**
      * Unsubscribes from current [Disposable].
      */
-    public func dispose(){
+    public func dispose() {
         subscription.dispose()
     }
 }

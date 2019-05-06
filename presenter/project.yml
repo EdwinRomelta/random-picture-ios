@@ -13,6 +13,9 @@ targets:
         PRODUCT_BUNDLE_IDENTIFIER: "com.edwin.presenter"
         DEVELOPMENT_TEAM: RCM6P6GKXX
         SWIFT_VERSION: 5.0
+    preBuildScripts:
+      - script: "if which swiftlint >/dev/null; then swiftlint ; else echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\" ; fi"
+        name: SwiftLint    
     dependencies:
       - framework: domain.framework
         implicit: true

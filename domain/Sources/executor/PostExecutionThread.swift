@@ -10,6 +10,6 @@ import Cleanse
 
 public typealias PostThreadExecutor = ImmediateSchedulerType
 
-public struct PostThreadExecutorImpl : Tag {
+public struct PostThreadExecutorImpl: Tag {
     public typealias Element = ImmediateSchedulerType
 }

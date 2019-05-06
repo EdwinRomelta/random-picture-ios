@@ -10,23 +10,22 @@ import presenter
 
 class SplashViewController: UIViewController {
 
-    var loginViewModel : LoginViewModel!
-    
+    var loginViewModel: LoginViewModel!
+
     init() {
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
         AppDelegate.shared.router.toLoginScreen()
     }
-
 
     /*
     // MARK: - Navigation
@@ -41,7 +40,7 @@ class SplashViewController: UIViewController {
 }
 
 extension SplashViewController {
-    func injectProperties(_ loginViewModel : LoginViewModel) {
+    func injectProperties(_ loginViewModel: LoginViewModel) {
         self.loginViewModel = loginViewModel
     }
 }

@@ -14,12 +14,12 @@
  * @param <V> the model return type
  */
 protocol Mapper {
-    
-    associatedtype entity
-    associatedtype domain
-    
-    func mapFromEntity(_ type: entity) -> domain
-    
-    func mapToEntity(_ type: domain) -> entity
-    
+
+    associatedtype Entity
+    associatedtype Domain
+
+    func mapFromEntity(_ type: Entity) -> Domain
+
+    func mapToEntity(_ type: Domain) -> Entity
+
 }

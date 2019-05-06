@@ -8,10 +8,10 @@
 import Foundation
 
 public class DialogErrorResource: ErrorResource {
-    
-    public let message : String
-    
-    init(_ message : String) {
+
+    public let message: String
+
+    init(_ message: String) {
         self.message = message
     }
 }

@@ -16,12 +16,12 @@ import Foundation
  * @param <V> the model return type
  */
 protocol EntityMapper {
-    
-    associatedtype cache
-    associatedtype data
-    
-    func mapFromCached(_ type: cache) -> data
-    
-    func mapToCached(_ type: data) -> cache
-    
+
+    associatedtype Cache
+    associatedtype Data
+
+    func mapFromCached(_ type: Cache) -> Data
+
+    func mapToCached(_ type: Data) -> Cache
+
 }

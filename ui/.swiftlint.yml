@@ -1,0 +1,5 @@
+included:
+  - sources
+excluded:
+  - Carthage
+  - resources

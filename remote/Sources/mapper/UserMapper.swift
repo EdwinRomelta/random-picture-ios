@@ -7,20 +7,20 @@
 
 import data
 
-public class UserMapper : EntityMapper{
-    
-    typealias data = SessionEntity
-    typealias remote = UserModel
-    
-    public init(){
-        
+public class UserMapper: EntityMapper {
+
+    typealias Data = SessionEntity
+    typealias Remote = UserModel
+
+    public init() {
+
     }
-    
+
     func mapFromRemote(_ type: UserModel) -> SessionEntity {
-        return SessionEntity(id : type.id,
-                             name : type.name,
-                             token : type.token,
-                             avatarUrl : type.avatarUrl)
+        return SessionEntity(id: type.id,
+                             name: type.name,
+                             token: type.token,
+                             avatarUrl: type.avatarUrl)
     }
-    
+
 }

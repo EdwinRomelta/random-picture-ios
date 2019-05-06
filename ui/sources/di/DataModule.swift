@@ -10,29 +10,29 @@ import RxSwift
 import domain
 import data
 
-struct DataModule : Module {
+struct DataModule: Module {
     static func configure(binder: SingletonBinder) {
         binder
             .bind(ImmediateSchedulerType.self)
             .tagged(with: ThreadExecutorImpl.self)
             .sharedInScope()
             .to(value: MainScheduler.asyncInstance)
-        
+
         binder
             .bind(SessionRepository.self)
             .sharedInScope()
-            .to(factory : SessionDataRepository.init )
-        
+            .to(factory: SessionDataRepository.init )
+
         binder
             .bind()
             .sharedInScope()
             .to(factory: SessionDataStoreFactory.init )
-        
+
         binder
             .bind()
             .sharedInScope()
             .to(factory: SessionCacheDataStore.init )
-        
+
         binder
             .bind()
             .sharedInScope()
@@ -43,5 +43,5 @@ struct DataModule : Module {
             .sharedInScope()
             .to(factory: SessionMapper.init )
     }
-    
+
 }

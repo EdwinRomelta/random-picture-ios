@@ -9,13 +9,13 @@ import Cleanse
 import data
 import cache
 
-struct CacheModule : Module {
+struct CacheModule: Module {
     static func configure(binder: SingletonBinder) {
         binder
             .bind(SessionCache.self)
             .sharedInScope()
             .to(factory: SessionCacheImpl.init )
-        
+
         binder
             .bind()
             .sharedInScope()

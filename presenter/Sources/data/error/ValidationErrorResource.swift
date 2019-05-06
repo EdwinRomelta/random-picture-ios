@@ -7,11 +7,11 @@
 
 import Foundation
 
-public class ValidationErrorResource : ErrorResource{
-    
-    public let errorCode : Int
-    
-    init(_ errorCode : Int) {
+public class ValidationErrorResource: ErrorResource {
+
+    public let errorCode: Int
+
+    init(_ errorCode: Int) {
         self.errorCode = errorCode
     }
 }

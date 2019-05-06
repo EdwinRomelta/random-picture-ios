@@ -7,8 +7,7 @@
 
 import Cleanse
 
-public struct Singleton : Cleanse.Scope {
+public struct Singleton: Cleanse.Scope {
 }
 
 public typealias SingletonBinder = Binder<Singleton>
-

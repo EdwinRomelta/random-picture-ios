@@ -9,16 +9,16 @@ import UIKit
 import Rswift
 
 extension UIView {
-    
+
     enum Visibility: String {
         case visible = "visible"
         case invisible = "invisible"
         case gone = "gone"
     }
-    
+
     var visibility: Visibility {
         get {
-            let constraint = (self.constraints.filter{$0.firstAttribute == .height && $0.constant == 0}.first)
+            let constraint = (self.constraints.filter {$0.firstAttribute == .height && $0.constant == 0}.first)
             if let constraint = constraint, constraint.isActive {
                 return .gone
             } else {
@@ -31,18 +31,18 @@ extension UIView {
             }
         }
     }
-    
+
     @IBInspectable
     var visibilityState: String {
         get {
             return self.visibility.rawValue
         }
         set {
-            let _visibility = Visibility(rawValue: newValue)!
-            self.visibility = _visibility
+            let visibility = Visibility(rawValue: newValue)!
+            self.visibility = visibility
         }
     }
-    
+
     private func setVisibility(_ visibility: Visibility) {
         let constraints = self.constraints.filter({$0.firstAttribute == .height && $0.constant == 0 && $0.secondItem == nil && ($0.firstItem as? UIView) == self})
         let constraint = (constraints.first)

@@ -7,16 +7,16 @@
 
 /**
  * Interface for model mappers. It provides helper methods that facilitate
- * retrieving of models from outer data source layers
+ * retrieving of models from outer Data source layers
  *
- * @param <remote> the remote model input type
- * @param <data> the entity model output type
+ * @param <Remote> the Remote model input type
+ * @param <Data> the entity model output type
  */
 protocol EntityMapper {
-    
-    associatedtype data
-    associatedtype remote
-    
-    func mapFromRemote(_ type: remote) -> data
-    
+
+    associatedtype Data
+    associatedtype Remote
+
+    func mapFromRemote(_ type: Remote) -> Data
+
 }
