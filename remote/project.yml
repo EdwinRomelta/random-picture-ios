@@ -6,7 +6,7 @@ targets:
     type: framework
     platform: iOS
     deploymentTarget: 10.0
-    sources: [Sources]
+    sources: [Sources,StubbedResponses]
     settings:
       base:
         CODE_SIGN_STYLE: Automatic
@@ -23,3 +23,5 @@ targets:
       - carthage: Alamofire
       - carthage: RxAlamofire
       - carthage: Cleanse
+      - carthage: Moya
+      - carthage: RxMoya

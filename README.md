@@ -15,7 +15,9 @@ For android version see in [here](https://github.com/EdwinRomelta/random-picture
 ## Dependency
 * [Alomofire](https://github.com/Alamofire/Alamofire) - Elegant HTTP Networking in Swift
 * [RxAlomofire](https://github.com/RxSwiftCommunity/RxAlamofire) - RxSwift wrapper around the elegant HTTP networking in Swift Alamofire
-  
+* [Moya](https://github.com/Moya/Moya) - Network abstraction layer written in Swift
+* [Result](https://github.com/antitypical/Result) - Swift type modelling the success/failure of arbitrary operations.
+
 ## Tools
 * [XcodeGen](https://github.com/yonaskolb/XcodeGen) - A Swift command line tool for generating your Xcode project
 * [Carthage](https://github.com/Carthage/Carthage) - A simple, decentralized dependency manager for Cocoa
@@ -26,3 +28,4 @@ For android version see in [here](https://github.com/EdwinRomelta/random-picture
 
 ## Reference
 * [CleanArchitectureRxSwift](https://github.com/sergdort/CleanArchitectureRxSwift) - Clean architecture with RxSwift
+* [SwiftHub](https://github.com/khoren93/SwiftHub) - GitHub iOS client in RxSwift and MVVM-C clean architecture

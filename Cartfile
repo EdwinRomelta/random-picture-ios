@@ -2,6 +2,8 @@ github "ReactiveX/RxSwift" ~> 4.0
 github "Alamofire/Alamofire" ~> 4.8
 github "RxSwiftCommunity/RxAlamofire" ~> 4.4
 github "RxSwiftCommunity/RxCoreData" ~> 0.5
-github "square/Cleanse"
+github "square/Cleanse" ~> 4.2.4
 github "flipboard/FLEX" ~> 2.0
-github "mac-cain13/R.swift.Library"
+github "mac-cain13/R.swift.Library" ~> v5.0.1
+github "Moya/Moya" ~> 13.0
+github "antitypical/Result" ~> 4.1.0

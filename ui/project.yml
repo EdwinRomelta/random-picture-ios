@@ -40,6 +40,9 @@ targets:
       - carthage: Cleanse
       - carthage: FLEX
       - carthage: Rswift
+      - carthage: Moya
+      - carthage: RxMoya
+      - carthage: Result
 schemes:
   app:
     build:
