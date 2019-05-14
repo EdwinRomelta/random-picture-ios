@@ -11,6 +11,7 @@ import Moya
 enum RandomPictureAPI {
     case login(_ loginRequest: LoginRequest)
     case register(_ email: String, _ name: String, _ password: String)
+    case getPosts
 }
 
 func stubbedResponse(_ fileName: String) -> Data {
@@ -42,12 +43,16 @@ extension RandomPictureAPI: TargetType {
             return "/login"
         case .register:
             return "/register"
+        case .getPosts:
+            return "/posts"
         }
     }
     var method: Moya.Method {
         switch self {
         case .login, .register:
             return .post
+        case .getPosts:
+            return .get
         }
     }
     var sampleData: Data {
@@ -56,6 +61,8 @@ extension RandomPictureAPI: TargetType {
             return stubbedResponse("Login")
         case .register:
             return stubbedResponse("Register")
+        case .getPosts:
+            return stubbedResponse("Login")
         }
     }
     var task: Task {
@@ -64,6 +71,8 @@ extension RandomPictureAPI: TargetType {
             return .requestJSONEncodable(loginRequest)
         case .register:
             return .requestPlain
+        case .getPosts:
+                return .requestPlain
         }
     }
     var headers: [String: String]? {

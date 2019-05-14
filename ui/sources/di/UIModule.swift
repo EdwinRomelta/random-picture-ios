@@ -33,6 +33,19 @@ struct UIModule: Module {
         binder
             .bindPropertyInjectionOf(SplashViewController.self)
             .to(injector: SplashViewController.injectProperties)
+        
+        binder
+            .bindPropertyInjectionOf(MainViewController.self)
+            .to(injector: MainViewController.injectProperties)
+        
+        binder
+            .bindPropertyInjectionOf(HomeViewController.self)
+            .to(injector: HomeViewController.injectProperties)
+        
+        binder
+            .bind()
+            .sharedInScope()
+            .to(factory: ui.PostMapper.init)
     }
 
 }

@@ -43,6 +43,8 @@ targets:
       - carthage: Moya
       - carthage: RxMoya
       - carthage: Result
+      - carthage: Kingfisher
+      - carthage: SwiftDate
 schemes:
   app:
     build:

@@ -25,6 +25,16 @@ struct CacheModule: Module {
             .bind()
             .sharedInScope()
             .to(factory: SessionEntityMapper.init)
+        
+        binder
+            .bind(PostCache.self)
+            .sharedInScope()
+            .to(factory: PostCacheImpl.init)
+        
+        binder
+            .bind()
+            .sharedInScope()
+            .to(factory: PostEntityMapper.init)
 
     }
 }

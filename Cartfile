@@ -4,6 +4,8 @@ github "RxSwiftCommunity/RxAlamofire" ~> 4.4
 github "RxSwiftCommunity/RxCoreData" ~> 0.5
 github "square/Cleanse" ~> 4.2.4
 github "flipboard/FLEX" ~> 2.0
-github "mac-cain13/R.swift.Library" ~> v5.0.1
+github "mac-cain13/R.swift.Library" ~> 5.0.1
 github "Moya/Moya" ~> 13.0
 github "antitypical/Result" ~> 4.1.0
+github "onevcat/Kingfisher" ~> 5.0
+github "malcommac/SwiftDate" ~> 6.0.3

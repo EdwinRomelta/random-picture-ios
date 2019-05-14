@@ -12,13 +12,17 @@ class RootViewController: UIViewController {
 
     var splashInjector: PropertyInjector<SplashViewController>
     var loginInjector: PropertyInjector<LoginViewController>
+    var homeInjector: PropertyInjector<HomeViewController>
     var currentScreen: UIViewController
 
     init(
         splashInjector: PropertyInjector<SplashViewController>,
-        loginInjector: PropertyInjector<LoginViewController>) {
+        loginInjector: PropertyInjector<LoginViewController>,
+        homeInjector: PropertyInjector<HomeViewController>) {
         self.splashInjector = splashInjector
         self.loginInjector = loginInjector
+        self.homeInjector = homeInjector
+        
         let splashViewController = SplashViewController()
         splashInjector.injectProperties(into: splashViewController)
         self.currentScreen = splashViewController
@@ -50,6 +54,20 @@ class RootViewController: UIViewController {
         currentScreen.view.removeFromSuperview()
         currentScreen.removeFromParent()
         currentScreen = loginScreen
+    }
+    
+    func toHomeScreen() {
+        let homeViewController = HomeViewController()
+        homeInjector.injectProperties(into: homeViewController)
+        let homeScreen = UINavigationController(rootViewController: homeViewController)
+        addChild(homeScreen)
+        homeScreen.view.frame = view.bounds
+        view.addSubview(homeScreen.view)
+        homeScreen.didMove(toParent: self)
+        currentScreen.willMove(toParent: nil)
+        currentScreen.view.removeFromSuperview()
+        currentScreen.removeFromParent()
+        currentScreen = homeScreen
     }
 }
 

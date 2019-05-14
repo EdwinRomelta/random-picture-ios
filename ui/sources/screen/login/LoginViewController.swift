@@ -52,6 +52,7 @@ class LoginViewController: BaseViewController {
                         self.registerButton.visibility = .visible
                         self.loginButton.visibility = .visible
                         self.loadingIndicator.visibility = .gone
+                        AppDelegate.shared.router.toHomeScreen()
                     case .ERROR:
                         self.emailTextField.isUserInteractionEnabled = true
                         self.passwordTextField.isUserInteractionEnabled = true

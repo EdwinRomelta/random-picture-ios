@@ -18,11 +18,16 @@ public class RandomPictureService {
 
     private let provider = MoyaProvider<RandomPictureAPI>()
     private let scheduler: ImmediateSchedulerType
+    private let decoder = JSONDecoder()
 
     public init(scheduler: TaggedProvider<RemoteExecutorThread>, baseUrl: TaggedProvider<BaseUrl>) {
         RandomPictureServiceFactory.createService()
         self.scheduler = scheduler.get()
         RandomPictureAPI.baseUrl = baseUrl.get()
+        let formatter = DateFormatter()
+        formatter.locale = Locale(identifier: "en_US_POSIX")
+        formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+        decoder.dateDecodingStrategy = .formatted(formatter)
     }
 
     func login(_ loginRequest: LoginRequest) -> Single<UserModel> {
@@ -37,6 +42,13 @@ public class RandomPictureService {
                 .filterSuccessfulStatusCodes()
                 .map(UserModel.self)
                 .observeOn(scheduler)
+    }
+    
+    func getPosts() -> Single<[PostModel]> {
+        return provider.rx.request(.getPosts)
+            .filterSuccessfulStatusCodes()
+            .map([PostModel].self,using: decoder)
+            .observeOn(scheduler)
     }
 }
 

@@ -25,6 +25,8 @@ For android version see in [here](https://github.com/EdwinRomelta/random-picture
 * [Fastlane](https://fastlane.tools/) - The easiest way to automate building and releasing your iOS and Android apps 
 * [R.swift](https://github.com/mac-cain13/R.swift) - Get strong typed, autocompleted resources like images, fonts and segues in Swift projects
 * [SwiftLint](https://github.com/realm/SwiftLint) - A tool to enforce Swift style and conventions
+* [SwiftDate](https://github.com/malcommac/SwiftDate) - Parse, validate, manipulate, and display dates, time and timezones in Swift
+* [Kingfisher](https://github.com/onevcat/Kingfisher) - A lightweight, pure-Swift library for downloading and caching images from the web.
 
 ## Reference
 * [CleanArchitectureRxSwift](https://github.com/sergdort/CleanArchitectureRxSwift) - Clean architecture with RxSwift

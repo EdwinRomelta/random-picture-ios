@@ -24,8 +24,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             let propertyInjector = try ComponentFactory.of(ApplicationComponent.self).build(())
             propertyInjector.injectProperties(into: self)
-        } catch {
-            fatalError("Failed to create application component")
+        } catch (let error){
+            print(error)
         }
         window!.backgroundColor = UIColor.white
         window!.makeKeyAndVisible()
