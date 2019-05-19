@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         do {
             let propertyInjector = try ComponentFactory.of(ApplicationComponent.self).build(())
             propertyInjector.injectProperties(into: self)
-        } catch (let error){
+        } catch (let error) {
             print(error)
         }
         window!.backgroundColor = UIColor.white

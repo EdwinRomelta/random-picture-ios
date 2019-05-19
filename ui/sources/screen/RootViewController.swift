@@ -22,7 +22,7 @@ class RootViewController: UIViewController {
         self.splashInjector = splashInjector
         self.loginInjector = loginInjector
         self.homeInjector = homeInjector
-        
+
         let splashViewController = SplashViewController()
         splashInjector.injectProperties(into: splashViewController)
         self.currentScreen = splashViewController
@@ -55,7 +55,7 @@ class RootViewController: UIViewController {
         currentScreen.removeFromParent()
         currentScreen = loginScreen
     }
-    
+
     func toHomeScreen() {
         let homeViewController = HomeViewController()
         homeInjector.injectProperties(into: homeViewController)

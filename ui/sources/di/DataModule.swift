@@ -37,34 +37,32 @@ struct DataModule: Module {
             .bind()
             .sharedInScope()
             .to(factory: SessionRemoteDataStore.init )
-        
-        
+
         binder
             .bind(PostRepository.self)
             .sharedInScope()
             .to(factory: PostDataRepository.init )
-        
+
         binder
             .bind()
             .sharedInScope()
             .to(factory: PostDataStoreFactory.init )
-        
+
         binder
             .bind()
             .sharedInScope()
             .to(factory: PostCacheDataStore.init )
-        
+
         binder
             .bind()
             .sharedInScope()
             .to(factory: PostRemoteDataStore.init )
-        
 
         binder
             .bind()
             .sharedInScope()
             .to(factory: SessionMapper.init )
-        
+
         binder
             .bind()
             .sharedInScope()

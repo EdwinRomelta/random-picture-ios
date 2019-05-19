@@ -9,6 +9,6 @@ import RxSwift
 import Cleanse
 
 public protocol PostRepository {
-    
-    func getPost() -> Single<[Post]>
+
+    func getPost() -> Observable<[Post]>
 }

@@ -16,8 +16,8 @@ open class ObservableUseCase<T, Params> {
     private let postExecutionThread: PostThreadExecutor
     private var disposables = CompositeDisposable()
 
-    init(threadExecutor: ThreadExecutor,
-         postExecutionThread: PostThreadExecutor) {
+    init(_ threadExecutor: ThreadExecutor,
+         _ postExecutionThread: PostThreadExecutor) {
         self.threadExecutor = threadExecutor
         self.postExecutionThread = postExecutionThread
     }
@@ -33,12 +33,13 @@ open class ObservableUseCase<T, Params> {
     /**
      * Executes the current use case.
      */
-    public func execute(observer: @escaping (Event<T>) -> Void, params: Params? = nil) {
+    public func execute(_ observer: @escaping (Event<T>) -> Void, _ params: Params? = nil) -> Disposable {
        let observable = self.buildUseCaseObservable(params)
             .subscribeOn(threadExecutor)
             .observeOn(postExecutionThread)
             .subscribe(observer)
         addDisposable(observable)
+        return observable
     }
 
     /**

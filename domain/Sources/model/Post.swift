@@ -6,12 +6,12 @@
 //
 
 public struct Post {
-    
+
     public let id: String?
     public let imgPath: String?
     public let text: String?
     public let timeStamp: Date?
-    
+
     public init(id: String?,
                 imgPath: String?,
                 text: String?,

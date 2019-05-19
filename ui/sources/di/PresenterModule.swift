@@ -14,12 +14,12 @@ struct PresenterModule: Module {
         binder
             .bind()
             .to(factory: LoginViewModel.init)
-        
+
         binder
             .bind()
             .sharedInScope()
             .to(factory: presenter.PostMapper.init)
-        
+
         binder
             .bind()
             .to(factory: PostsViewModel.init)

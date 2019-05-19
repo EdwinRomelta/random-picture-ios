@@ -6,10 +6,10 @@
 //
 
 protocol Mapper {
-    
+
     associatedtype View
     associatedtype Presenter
-    
+
     func mapToViewModel(_ type: Presenter) -> View
-    
+
 }

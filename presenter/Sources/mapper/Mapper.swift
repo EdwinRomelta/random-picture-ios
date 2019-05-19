@@ -13,10 +13,10 @@
  * @param <D> the domain model output type
  */
 protocol Mapper {
-    
+
     associatedtype View
     associatedtype Domain
-    
+
     func mapToView(_ type: Domain) -> View
-    
+
 }

@@ -9,7 +9,7 @@ import domain
 import RxSwift
 
 public protocol PostRemote {
-    
+
     func getPosts() -> Single<[PostEntity]>
-    
+
 }

@@ -14,7 +14,7 @@ struct DomainModule: Module {
         binder
             .bind()
             .to(factory: Login.init)
-        
+
         binder
             .bind()
             .to(factory: GetPosts.init)

@@ -9,15 +9,19 @@ import domain
 import RxSwift
 
 public class PostRemoteDataStore: PostDataStore {
-    
+
     private let postRemote: PostRemote
-    
+
     public init(postRemote: PostRemote) {
         self.postRemote = postRemote
     }
-    
-    
-    func getPosts() -> Single<[PostEntity]> {
-        return postRemote.getPosts()
+
+    func getPosts() -> Observable<[PostEntity]> {
+        return postRemote.getPosts().asObservable()
     }
+
+    func savePosts(_ posts: [PostEntity]) -> Completable {
+        fatalError("Unsupported Operation")
+    }
+
 }

@@ -43,11 +43,11 @@ public class RandomPictureService {
                 .map(UserModel.self)
                 .observeOn(scheduler)
     }
-    
+
     func getPosts() -> Single<[PostModel]> {
         return provider.rx.request(.getPosts)
             .filterSuccessfulStatusCodes()
-            .map([PostModel].self,using: decoder)
+            .map([PostModel].self, using: decoder)
             .observeOn(scheduler)
     }
 }

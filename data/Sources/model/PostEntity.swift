@@ -10,7 +10,7 @@ public struct PostEntity {
     public let imgPath: String?
     public let text: String?
     public let timeStamp: Date?
-    
+
     public init(id: String?,
                 imgPath: String?,
                 text: String?,

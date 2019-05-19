@@ -7,12 +7,12 @@
 import Foundation
 
 public struct PostViewModel {
-    
+
     public let id: String?
     public let imgPath: String?
     public let text: String?
     public let timeStamp: String?
-    
+
     public init(id: String?,
                 imgPath: String?,
                 text: String?,
@@ -23,4 +23,3 @@ public struct PostViewModel {
         self.timeStamp = timeStamp
     }
 }
-

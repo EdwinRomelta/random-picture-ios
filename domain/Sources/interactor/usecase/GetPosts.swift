@@ -8,18 +8,18 @@
 import RxSwift
 import Cleanse
 
-public class GetPosts: SingleUseCase<[Post], Void> {
-    
-    private let postRepository :PostRepository
-    
+public class GetPosts: ObservableUseCase<[Post], Void> {
+
+    private let postRepository: PostRepository
+
     public init(postRepository: PostRepository,
                 threadExecutor: TaggedProvider<ThreadExecutorImpl>,
                 postExecutionThread: TaggedProvider<PostThreadExecutorImpl>) {
         self.postRepository = postRepository
         super.init(threadExecutor.get(), postExecutionThread.get())
     }
-    
-    public override func buildUseCaseObservable(_ params: Void?) -> Single<[Post]> {
+
+    public override func buildUseCaseObservable(_ params: Void?) -> Observable<[Post]> {
         return postRepository.getPost()
     }
 }

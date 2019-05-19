@@ -15,12 +15,12 @@ class HomeViewController: UIViewController {
     init() {
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     @available(*, unavailable)
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-    
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -29,22 +29,21 @@ class HomeViewController: UIViewController {
         addChild(childViewController)
         view.addSubview(childViewController.view)
         childViewController.didMove(toParent: self)
-        
+
         var horzConstraints = NSLayoutConstraint.constraints(withVisualFormat: "H:|[childView]|", options: [], metrics: nil, views: [
             "childView": childViewController.view
             ])
-        
+
         var vertConstraints = NSLayoutConstraint.constraints(withVisualFormat: "V:|[childView]|", options: [], metrics: nil, views: [
             "childView": childViewController.view
             ])
-        
+
         view.addConstraints(horzConstraints)
         view.addConstraints(vertConstraints)
-        
+
         childViewController.view.translatesAutoresizingMaskIntoConstraints = false
 
     }
-
 
     /*
     // MARK: - Navigation

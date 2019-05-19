@@ -6,28 +6,32 @@
 //
 
 import data
+import CoreData
 
 public class PostEntityMapper: EntityMapper {
-    
+
     typealias Cache = CachedPost
     typealias Data = PostEntity
-    
-    public init() {
-        
+
+    private let context: NSManagedObjectContext
+
+    public init(context: NSManagedObjectContext) {
+        self.context = context
     }
-    
+
     func mapFromCached(_ type: CachedPost) -> PostEntity {
         return PostEntity(id: type.id,
                              imgPath: type.imgPath,
                              text: type.text,
-                             timeStamp: type.timeStamp)
+                             timeStamp: type.timestamp)
     }
-    
+
     func mapToCached(_ type: PostEntity) -> CachedPost {
-        return CachedPost(id: type.id,
-                             imgPath: type.imgPath,
-                             text: type.text,
-                             timeStamp: type.timeStamp)
+        return CachedPost(context,
+                          id: type.id,
+                         imgPath: type.imgPath,
+                         text: type.text,
+                         timestamp: type.timeStamp)
     }
-    
+
 }

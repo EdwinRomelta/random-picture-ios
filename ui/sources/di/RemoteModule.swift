@@ -33,7 +33,7 @@ struct RemoteModule: Module {
             .bind()
             .sharedInScope()
             .to(factory: UserMapper.init)
-        
+
         binder
             .bind()
             .sharedInScope()
@@ -43,7 +43,7 @@ struct RemoteModule: Module {
             .bind(SessionRemote.self)
             .sharedInScope()
             .to(factory: SessionRemoteImpl.init)
-        
+
         binder
             .bind(PostRemote.self)
             .sharedInScope()

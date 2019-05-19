@@ -9,7 +9,8 @@ import domain
 import RxSwift
 
 protocol PostDataStore {
-    
-    func getPosts() -> Single<[PostEntity]>
-    
+
+    func getPosts() -> Observable<[PostEntity]>
+
+    func savePosts(_ posts: [PostEntity]) -> Completable
 }

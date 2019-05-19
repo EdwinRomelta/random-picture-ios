@@ -8,6 +8,8 @@
 import RxSwift
 
 public protocol PostCache {
-    
-    func getPosts() -> Single<[PostEntity]>
+
+    func getPosts() -> Observable<[PostEntity]>
+
+    func savePosts(_ posts: [PostEntity]) -> Completable
 }
